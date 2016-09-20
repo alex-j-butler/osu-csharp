@@ -6,3 +6,19 @@ platform: Any CPU
 
 before_build:
   - nuget restore
+
+artifacts:
+  - path: osu-csharp\bin\$(configuration)\osu-csharp.dll
+    name: osu-csharp
+
+deploy:
+  - provider: GitHub
+    artifact: osu-csharp
+    description: 'osu-c# Release'
+    draft: true
+    prerelease: false
+    auth_token:
+      secure: 8PJlwRCwPRHnmZW04oIQH/F4YnmNOpItOgrO2wh+ujGSstOsr+f+9iQ9Z/HtnxIN
+    on:
+      branch: master
+      appveyor_repo_tag: false
