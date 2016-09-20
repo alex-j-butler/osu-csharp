@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu-csharp", "osu-csharp\osu-csharp.csproj", "{01EFB4B6-5208-4813-9367-B9CF5CD821EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "osu-csharp-tests", "osu-csharp-tests\osu-csharp-tests.csproj", "{349B1A3B-043D-4603-A2C5-E06C86ABC3F7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01EFB4B6-5208-4813-9367-B9CF5CD821EC} = {01EFB4B6-5208-4813-9367-B9CF5CD821EC}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01EFB4B6-5208-4813-9367-B9CF5CD821EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01EFB4B6-5208-4813-9367-B9CF5CD821EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01EFB4B6-5208-4813-9367-B9CF5CD821EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01EFB4B6-5208-4813-9367-B9CF5CD821EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{349B1A3B-043D-4603-A2C5-E06C86ABC3F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349B1A3B-043D-4603-A2C5-E06C86ABC3F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349B1A3B-043D-4603-A2C5-E06C86ABC3F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349B1A3B-043D-4603-A2C5-E06C86ABC3F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

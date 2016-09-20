@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01EFB4B6-5208-4813-9367-B9CF5CD821EC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>osu_csharp</RootNamespace>
+    <AssemblyName>osu-csharp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Beatmap.cs" />
+    <Compile Include="BeatmapGenre.cs" />
+    <Compile Include="BeatmapLanguage.cs" />
+    <Compile Include="BeatmapRequest.cs" />
+    <Compile Include="BeatmapStatus.cs" />
+    <Compile Include="GameMode.cs" />
+    <Compile Include="Keys.cs" />
+    <Compile Include="LZMA\CommandLineParser.cs" />
+    <Compile Include="LZMA\CRC.cs" />
+    <Compile Include="LZMA\ICoder.cs" />
+    <Compile Include="LZMA\IMatchFinder.cs" />
+    <Compile Include="LZMA\InBuffer.cs" />
+    <Compile Include="LZMA\LzBinTree.cs" />
+    <Compile Include="LZMA\LzInWindow.cs" />
+    <Compile Include="LZMA\LzmaBase.cs" />
+    <Compile Include="LZMA\LZMACoder.cs" />
+    <Compile Include="LZMA\LzmaDecoder.cs" />
+    <Compile Include="LZMA\LzmaEncoder.cs" />
+    <Compile Include="LZMA\LzOutWindow.cs" />
+    <Compile Include="LZMA\OutBuffer.cs" />
+    <Compile Include="LZMA\RangeCoder.cs" />
+    <Compile Include="LZMA\RangeCoderBit.cs" />
+    <Compile Include="LZMA\RangeCoderBitTree.cs" />
+    <Compile Include="Mods.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadableByteFile.cs" />
+    <Compile Include="Replay.cs" />
+    <Compile Include="ReplayFrame.cs" />
+    <Compile Include="RequestConfig.cs" />
+    <Compile Include="Score.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserRequest.cs" />
+    <Compile Include="UserScoreRequest.cs" />
+    <Compile Include="WritableByteFile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
