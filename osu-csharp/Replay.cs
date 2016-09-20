@@ -90,7 +90,7 @@ namespace OsuAPI.ReplayParser
         /// </summary>
         public short HighestCombo { get; set; }
 
-        public string LifeBarGraph { get; }
+        public string LifeBarGraph { get; private set; }
 
         /// <summary>
         /// Timestamp of the Osu replay.
