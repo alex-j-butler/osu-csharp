@@ -90,7 +90,7 @@ namespace OsuAPI.ReplayParser
         /// </summary>
         public short HighestCombo { get; set; }
 
-        public string LifeBarGraph { get; set; }
+        public string LifeBarGraph { get; }
 
         /// <summary>
         /// Timestamp of the Osu replay.
@@ -105,6 +105,11 @@ namespace OsuAPI.ReplayParser
         public int Seed;
 
         public List<ReplayFrame> ReplayFrames = new List<ReplayFrame>();
+
+        /// <summary>
+        /// Life frames making up the life graph shown on the osu! result screen.
+        /// </summary>
+        public List<LifeFrame> LifeFrames = new List<LifeFrame>();
 
         /// <summary>
         /// Create a new osu! Replay instance from the filepath given.
@@ -204,7 +209,18 @@ namespace OsuAPI.ReplayParser
             WriteFile.WriteShort(HighestCombo);
             WriteFile.WriteBool(FullCombo);
             WriteFile.WriteInt((int)Mods);
-            WriteFile.WriteString(LifeBarGraph);
+
+            // Write the life frames.
+            StringBuilder sb = new StringBuilder();
+            
+            for (int i = 0; i < LifeFrames.Count; i++)
+            {
+                sb.AppendFormat("{0}|{1},", LifeFrames[i].Time, LifeFrames[i].LifePercent);
+            }
+
+            WriteFile.WriteString(sb.ToString());
+
+
             WriteFile.WriteLong(Timestamp);
 
             if (ReplayFrames.Count == 0)
@@ -213,7 +229,7 @@ namespace OsuAPI.ReplayParser
             }
             else
             {
-                StringBuilder sb = new StringBuilder();
+                sb.Clear();
 
                 for (int i = 0; i < ReplayFrames.Count; i++)
                 {
@@ -264,6 +280,8 @@ namespace OsuAPI.ReplayParser
             Timestamp = File.ReadLong();
             Accuracy = CalculateAccuracy(NumberOf300s, NumberOf100s, NumberOf50s, NumberOfMisses);
 
+            ParseLifeGraph();
+
             int length = File.ReadInt();
             byte[] compressed = File.ReadBytes(length);
             MemoryStream compressedMS = new MemoryStream(compressed);
@@ -312,6 +330,32 @@ namespace OsuAPI.ReplayParser
 
             // Dispose of the ByteFile reader.
             File.Dispose();
+        }
+
+        /// <summary>
+        /// Parse the life graph, separating it into LifeFrames.
+        /// </summary>
+        private void ParseLifeGraph()
+        {
+            foreach (string frame in LifeBarGraph.Split(','))
+            {
+                if (string.IsNullOrEmpty(frame))
+                {
+                    continue;
+                }
+
+                string[] split = frame.Split('|');
+                if (split.Length < 2)
+                {
+                    continue;
+                }
+
+                LifeFrames.Add(new LifeFrame()
+                {
+                    Time = int.Parse(split[0]),
+                    LifePercent = float.Parse(split[1])
+                });
+            }
         }
 
         /// <summary>

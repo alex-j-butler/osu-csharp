@@ -51,6 +51,7 @@
     <Compile Include="BeatmapStatus.cs" />
     <Compile Include="GameMode.cs" />
     <Compile Include="Keys.cs" />
+    <Compile Include="LifeFrame.cs" />
     <Compile Include="LZMA\CommandLineParser.cs" />
     <Compile Include="LZMA\CRC.cs" />
     <Compile Include="LZMA\ICoder.cs" />
