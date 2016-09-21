@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 using OsuAPI.Common;
@@ -71,14 +72,19 @@ namespace OsuAPI.WebAPI
             }
         }
 
-        public Beatmap Beatmap
+        public Beatmap GetBeatmap()
         {
-            get
+            return BeatmapRequest.New()
+                .ID(BeatmapID)
+                .GetFirst();
+        }
+
+        public async Task<Beatmap> GetBeatmapAsync()
+        {
+            return await Task.Run(() =>
             {
-                return BeatmapRequest.New()
-                    .ID(BeatmapID)
-                    .GetFirst();
-            }
+                return GetBeatmap();
+            });
         }
 
     }

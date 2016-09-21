@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 using OsuAPI.Common;
@@ -113,6 +114,21 @@ namespace OsuAPI.WebAPI
         /// </summary>
         [JsonProperty("pp_country_rank")]
         public int CountryRank;
+
+        public Score[] GetScores()
+        {
+            return UserScoreRequest.New()
+                .ID(ID)
+                .Get();
+        }
+
+        public async Task<Score[]> GetScoresAsync()
+        {
+            return await Task.Run(() =>
+            {
+                return GetScores();
+            });
+        }
 
     }
 
