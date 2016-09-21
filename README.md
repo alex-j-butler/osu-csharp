@@ -1,4 +1,4 @@
-# osu-c\#
+# osu-c&#35
 
 [![Build status](https://ci.appveyor.com/api/projects/status/mfjgct60b2smguyi?svg=true)](https://ci.appveyor.com/project/alex-j-butler/osu-csharp)
 
