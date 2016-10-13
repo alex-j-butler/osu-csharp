@@ -7,13 +7,6 @@ using OsuAPI.Common;
 namespace OsuAPI.WebAPI
 {
 
-    enum RequestType
-    {
-        NONE,
-        USERNAME,
-        ID
-    }
-
     /// <summary>
     /// Factory for querying beatmaps from the official osu! api.
     /// </summary>

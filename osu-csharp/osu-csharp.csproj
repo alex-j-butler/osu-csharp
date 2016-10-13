@@ -74,6 +74,7 @@
     <Compile Include="Replay.cs" />
     <Compile Include="ReplayFrame.cs" />
     <Compile Include="RequestConfig.cs" />
+    <Compile Include="RequestType.cs" />
     <Compile Include="Score.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserRequest.cs" />

@@ -13,17 +13,29 @@ namespace OsuAPI.WebAPI
     public class UserScoreRequest
     {
 
+        /// <summary>
+        /// Internal request type.
+        /// </summary>
         private RequestType Type;
 
+        /// <summary>
+        /// Internal score username.
+        /// </summary>
         private string ScoreUsername;
 
+        /// <summary>
+        /// Internal score ID.
+        /// </summary>
         private int? ScoreUserID;
 
         /// <summary>
-        /// User gamemode to search for.
+        /// Internal score gamemode.
         /// </summary>
         private GameMode? ScoreGameMode;
 
+        /// <summary>
+        /// Internal score limit.
+        /// </summary>
         private int? ScoreLimit;
 
         /// <summary>
@@ -39,6 +51,11 @@ namespace OsuAPI.WebAPI
             return this;
         }
 
+        /// <summary>
+        /// Set the UserID for the user score request.
+        /// </summary>
+        /// <param name="ID">User ID</param>
+        /// <returns></returns>
         public UserScoreRequest ID(int ID)
         {
             ScoreUserID = ID;
@@ -47,6 +64,11 @@ namespace OsuAPI.WebAPI
             return this;
         }
 
+        /// <summary>
+        /// Set the GameMode for the user score request.
+        /// </summary>
+        /// <param name="gameMode">GameMode</param>
+        /// <returns></returns>
         public UserScoreRequest GameMode(GameMode gameMode)
         {
             ScoreGameMode = gameMode;
@@ -54,6 +76,11 @@ namespace OsuAPI.WebAPI
             return this;
         }
 
+        /// <summary>
+        /// Set the limit for the user score request.
+        /// </summary>
+        /// <param name="limit">limit of user scores to be returned</param>
+        /// <returns></returns>
         public UserScoreRequest Limit(int limit)
         {
             ScoreLimit = limit;
@@ -82,6 +109,7 @@ namespace OsuAPI.WebAPI
                     client.QueryString.Add("m", ((int)ScoreGameMode).ToString());
                 }
 
+                // Set the limit query, if a value has been set.
                 if (ScoreLimit.HasValue)
                 {
                     client.QueryString.Add("limit", ScoreLimit.ToString());
