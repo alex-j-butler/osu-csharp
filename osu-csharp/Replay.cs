@@ -98,6 +98,11 @@ namespace OsuAPI.ReplayParser
         public long Timestamp { get; set; }
 
         /// <summary>
+        /// Date of the Osu replay.
+        /// </summary>
+        public DateTime Date { get; set; }
+
+        /// <summary>
         /// Accuracy of the Osu replay.
         /// </summary>
         public double Accuracy { get; set; }
@@ -278,6 +283,7 @@ namespace OsuAPI.ReplayParser
             Mods = (Mods)File.ReadInt();
             LifeBarGraph = File.ReadString();
             Timestamp = File.ReadLong();
+            Date = new DateTime(Timestamp);
             Accuracy = CalculateAccuracy(NumberOf300s, NumberOf100s, NumberOf50s, NumberOfMisses);
 
             ParseLifeGraph();
